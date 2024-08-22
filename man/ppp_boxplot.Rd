@@ -28,8 +28,8 @@ A function to produce boxplots using ggplot2 with theme, colors, and statistics
 \examples{
 my_comparisons <- list(c("female", "hermaphroditic"), c("female", "male"), c("female", "none"))
 my_colors <- c("#337495", "#002a33", "#2f5a69", "#143b44")
-my_method = "wilcox.test"
-ppp_boxplot(data = starwars,
+my_method <- "wilcox.test"
+ppp_boxplot(data = dplyr::starwars,
             x_var = "sex", 
             y_var = "height", 
             comparisons = my_comparisons, 
