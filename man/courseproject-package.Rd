@@ -4,12 +4,12 @@
 \name{courseproject-package}
 \alias{courseproject}
 \alias{courseproject-package}
-\title{courseproject: What the Package Does (One Line, Title Case)}
+\title{courseproject: PPP}
 \description{
-What the package does (one paragraph).
+Build Pretty Plots Fast using ggplot2
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Laura Iisager \email{leij@clin.au.dk} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 
 }
 \keyword{internal}
