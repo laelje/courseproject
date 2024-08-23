@@ -9,9 +9,9 @@ ppp_barplot(data, x_var, colors)
 \arguments{
 \item{data}{data frame}
 
-\item{colors}{character vector of color names of same length as x_var}
+\item{x_var}{categorical variable in data}
 
-\item{x_svar}{categorical variable in data}
+\item{colors}{character vector of color names of same length as x_var}
 }
 \value{
 A pretty colored bar plot with counts and percentages printed on the plot

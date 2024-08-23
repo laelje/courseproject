@@ -3,7 +3,7 @@
 #' A function to produce bar plots using ggplot2 with theme, colors, and counts (percentages)
 #'
 #' @param data data frame
-#' @param x_svar categorical variable in data
+#' @param x_var categorical variable in data
 #' @param colors character vector of color names of same length as x_var
 #'
 #' @return A pretty colored bar plot with counts and percentages printed on the plot
