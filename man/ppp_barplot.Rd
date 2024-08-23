@@ -2,24 +2,24 @@
 % Please edit documentation in R/ppp2.R
 \name{ppp_barplot}
 \alias{ppp_barplot}
-\title{Build pretty barplots fast}
+\title{Build pretty bar plots fast}
 \usage{
 ppp_barplot(data, x_var, colors)
 }
 \arguments{
-\item{data}{a data frame}
+\item{data}{data frame}
 
-\item{x_var}{a categorical variable in data}
+\item{colors}{character vector of color names of same length as x_var}
 
-\item{colors}{character vector of colors names for x_var}
+\item{x_svar}{categorical variable in data}
 }
 \value{
-A pretty colored barplot with counts printed on the plot
+A pretty colored bar plot with counts and percentages printed on the plot
 }
 \description{
-A function to produce barplots using ggplot2 with theme, colors, and text
+A function to produce bar plots using ggplot2 with theme, colors, and counts (percentages)
 }
 \examples{
-my_colors <- c("#337495", "#002a33", "#2f5a69", "#143b44")
+my_colors <- c("#E09F3E", "#9E2A2B", "#540B0E", "#335C67")
 ppp_barplot(data = dplyr::starwars, x_var = "sex", colors = my_colors)
 }

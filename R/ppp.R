@@ -1,15 +1,15 @@
-#' Build pretty boxplots fast 
+#' Build pretty box plots fast 
 #'
-#' A function to produce boxplots using ggplot2 with theme, colors, and statistics
+#' A function to produce box plots using ggplot2 with theme, colors, and statistics
 #'
-#' @param data a data frame
-#' @param x_var a categorical variable in data
-#' @param y_var a numeric variable in data
+#' @param data data frame
+#' @param x_var categorical variable in data
+#' @param y_var numeric variable in data
 #' @param comparisons list of groups to compare
-#' @param colors character vector of colors names for x_var
+#' @param colors character vector of color names of same length as x_var
 #' @param method statistical method
 #'
-#' @return A pretty colored boxplot with stats printed on the plot
+#' @return A pretty colored box plot with stats printed on the plot
 #'
 #' @import ggplot2
 #' @import dplyr
@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' my_comparisons <- list(c("female", "hermaphroditic"), c("female", "male"), c("female", "none"))
-#' my_colors <- c("#337495", "#002a33", "#2f5a69", "#143b44")
+#' my_colors <- c("#E09F3E", "#9E2A2B", "#540B0E", "#335C67")
 #' my_method <- "wilcox.test"
 #' ppp_boxplot(data = dplyr::starwars,
 #'             x_var = "sex", 
@@ -29,9 +29,9 @@
 #'             method = my_method)
 ppp_boxplot <- function(data, x_var, y_var, comparisons, colors, method) {
   data_filtered <- subset(data, !is.na(data[[x_var]]))
-  ggplot(data_filtered, aes_string(x = x_var, y = y_var, fill = x_var)) +
-    geom_boxplot(outlier.shape = NA, alpha = 0.5) +
-    geom_jitter(aes_string(color = x_var), alpha = 0.7, show.legend = FALSE) +
+  ggplot(data_filtered, aes(x = !!sym(x_var), y = !!sym(y_var), fill = !!sym(x_var))) +
+    geom_boxplot(outlier.shape = NA, alpha=0.8) +
+    geom_jitter(aes(color = !!sym(x_var)), show.legend = FALSE) +
     labs(title = paste("Plot of", y_var, "by", x_var), 
          x = x_var,
          y = y_var) +
@@ -40,9 +40,6 @@ ppp_boxplot <- function(data, x_var, y_var, comparisons, colors, method) {
     scale_color_manual(values = colors) +
     scale_fill_manual(values = colors)
 }
-
-
-
 
 
 

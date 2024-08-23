@@ -1,12 +1,12 @@
-#' Build pretty barplots fast 
+#' Build pretty bar plots fast 
 #' 
-#' A function to produce barplots using ggplot2 with theme, colors, and text
+#' A function to produce bar plots using ggplot2 with theme, colors, and counts (percentages)
 #'
-#' @param data a data frame
-#' @param x_var a categorical variable in data
-#' @param colors character vector of colors names for x_var
+#' @param data data frame
+#' @param x_svar categorical variable in data
+#' @param colors character vector of color names of same length as x_var
 #'
-#' @return A pretty colored barplot with counts printed on the plot
+#' @return A pretty colored bar plot with counts and percentages printed on the plot
 #' 
 #' @import ggplot2
 #' @import dplyr
@@ -15,13 +15,13 @@
 #' @export
 #'
 #' @examples
-#' my_colors <- c("#337495", "#002a33", "#2f5a69", "#143b44")
+#' my_colors <- c("#E09F3E", "#9E2A2B", "#540B0E", "#335C67")
 #' ppp_barplot(data = dplyr::starwars, x_var = "sex", colors = my_colors)
 ppp_barplot <- function(data, x_var, colors) {
   data_filtered <- subset(data, !is.na(data[[x_var]]))
-  ggplot(data_filtered, aes_string(x = x_var, fill = x_var)) +
-    geom_bar(alpha = 0.5) +
-    geom_text(stat = "count", aes(label = sprintf("%d (%.1f%%)", ..count.., (..count..)/sum(..count..) * 100)), vjust = -0.5) +
+  ggplot(data_filtered, aes(x = !!sym(x_var), fill = !!sym(x_var))) +
+    geom_bar() +
+    geom_text(stat = "count", aes(label = sprintf("%d (%.1f%%)", after_stat(count), (after_stat(count))/sum(after_stat(count)) * 100), vjust = -0.5)) +
     labs(title = paste("Count of", x_var), 
          x = x_var,
          y = "count") +
@@ -29,3 +29,7 @@ ppp_barplot <- function(data, x_var, colors) {
     scale_color_manual(values = colors) +
     scale_fill_manual(values = colors)
 }
+
+
+
+
