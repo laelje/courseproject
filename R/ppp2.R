@@ -30,7 +30,3 @@ ppp_barplot <- function(data, x_var, colors) {
     scale_color_manual(values = colors) +
     scale_fill_manual(values = colors)
 }
-
-
-
-

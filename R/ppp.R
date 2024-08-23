@@ -46,7 +46,3 @@ ppp_boxplot <- function(data, x_var, y_var, comparisons, colors, method) {
     scale_color_manual(values = colors) +
     scale_fill_manual(values = colors)
 }
-
-
-
-
