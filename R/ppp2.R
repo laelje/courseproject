@@ -17,6 +17,7 @@
 #' @examples
 #' my_colors <- c("#E09F3E", "#9E2A2B", "#540B0E", "#335C67")
 #' ppp_barplot(data = dplyr::starwars, x_var = "sex", colors = my_colors)
+#' ppp_barplot(data = iris, x_var = "Species", colors = c("#337495", "#002a33", "#2f5a69"))
 ppp_barplot <- function(data, x_var, colors) {
   data_filtered <- subset(data, !is.na(data[[x_var]]))
   ggplot(data_filtered, aes(x = !!sym(x_var), fill = !!sym(x_var))) +

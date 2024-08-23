@@ -22,4 +22,5 @@ A function to produce bar plots using ggplot2 with theme, colors, and counts (pe
 \examples{
 my_colors <- c("#E09F3E", "#9E2A2B", "#540B0E", "#335C67")
 ppp_barplot(data = dplyr::starwars, x_var = "sex", colors = my_colors)
+ppp_barplot(data = iris, x_var = "Species", colors = c("#337495", "#002a33", "#2f5a69"))
 }

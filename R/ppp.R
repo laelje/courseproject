@@ -27,6 +27,12 @@
 #'             comparisons = my_comparisons, 
 #'             colors = my_colors, 
 #'             method = my_method)
+#' ppp_boxplot(data = iris, 
+#'             x_var = "Species", 
+#'             y_var = "Sepal.Length", 
+#'             comparisons = list(c("setosa", "versicolor"), c("setosa", "virginica")),
+#'             colors = c("#337495", "#002a33", "#2f5a69"),
+#'             method = "wilcox.test")
 ppp_boxplot <- function(data, x_var, y_var, comparisons, colors, method) {
   data_filtered <- subset(data, !is.na(data[[x_var]]))
   ggplot(data_filtered, aes(x = !!sym(x_var), y = !!sym(y_var), fill = !!sym(x_var))) +
