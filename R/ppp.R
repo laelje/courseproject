@@ -2,14 +2,14 @@
 #'
 #' A function to produce box plots using ggplot2 with theme, colors, and statistics
 #'
-#' @param data data frame
-#' @param x_var categorical variable in data
-#' @param y_var numeric variable in data
-#' @param comparisons list of groups to compare
-#' @param colors character vector of color names of same length as x_var
-#' @param method statistical method
+#' @param data data frame containing the variables to be plotted and analyzed
+#' @param x_var categorical variable in the data frame that will be used for grouping on the x-axis
+#' @param y_var numeric variable in the data frame that will be plotted on the y-axis
+#' @param comparisons list specifying the pairs of categories in x_var to be compared statistically
+#' @param colors character vector of color names, where the number of colors provided must match the number of unique categories in the x_var variable
+#' @param method statistical method used for comparing the groups specified in comparisons (e.g., "wilcox.test", "t.test")
 #'
-#' @return A pretty colored box plot with stats printed on the plot
+#' @return visually appealing, colored box plot of y_var grouped by x_var, with statistical comparisons of the specified groups (comparisons) displayed on the plot, using the specified method. The plot is customized with colors from the provided colors vector
 #'
 #' @import ggplot2
 #' @import dplyr

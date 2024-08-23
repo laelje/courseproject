@@ -7,14 +7,14 @@
 ppp_barplot(data, x_var, colors)
 }
 \arguments{
-\item{data}{data frame}
+\item{data}{data frame containing the variables to be plotted}
 
-\item{x_var}{categorical variable in data}
+\item{x_var}{categorical variable in the data frame that will be used to create the bar plot}
 
-\item{colors}{character vector of color names of same length as x_var}
+\item{colors}{character vector of color names, where the number of colors provided must match the number of unique categories in the x_var variable}
 }
 \value{
-A pretty colored bar plot with counts and percentages printed on the plot
+visually appealing bar plot displaying counts and percentages for each category in x_var, with the values printed directly on the plot
 }
 \description{
 A function to produce bar plots using ggplot2 with theme, colors, and counts (percentages)
